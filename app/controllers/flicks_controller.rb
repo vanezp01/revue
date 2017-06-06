@@ -1,6 +1,6 @@
 class FlicksController < ApplicationController
   before_action :find_flick, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @flicks = Flick.all.order("created_at DESC")
   end
@@ -20,6 +20,22 @@ class FlicksController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @flick.update(flick_params)
+      redirect_to flick_path(@flick)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @flick.destroy
+    redirect_to root_path
   end
 
   private
