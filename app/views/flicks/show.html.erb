@@ -2,6 +2,11 @@
 <h3><%= @flick.director %></h3>
 <p><%= @flick.description %></p>
 
-<%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_flick_path(@flick) %>
-<%= link_to "Delete", flick_path(@flick), method: :delete, data: { confirm: "Are you sure?" } %> 
+<div class="links btn-group">
+  <% if user_signed_in? %>
+    <% if @flick.user_id == current_user.id %>
+      <%= link_to "Edit", edit_flick_path(@flick) %>
+      <%= link_to "Delete", flick_path(@flick), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+  <% end %>
+</div> 
