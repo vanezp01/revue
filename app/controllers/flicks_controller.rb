@@ -9,11 +9,11 @@ class FlicksController < ApplicationController
   end
 
   def new
-    @flick = Flick.new
+    @flick = current_user.flick.build
   end
 
   def create
-    @flick = Flick.new(flick_params)
+    @flick = current_user.flick.build(flick_params)
 
     if @flick.save
       redirect_to root_path
