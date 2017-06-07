@@ -1,6 +1,7 @@
 <h1> Fix your submitted flicks</h1>
 
 <%= simple_form_for @flick, html: {multipart: true} do |f| %>
+			<%= f.file_field :flick_img %>
 			<%= f.select :category_id, @categories %>
 		  <%= f.input :title %>
 		  <%= f.input :description %>

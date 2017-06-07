@@ -51,7 +51,7 @@ class FlicksController < ApplicationController
   private
 
   def flick_params
-    params.require(:flick).permit(:title, :description, :director, :category_id)
+    params.require(:flick).permit(:title, :description, :director, :category_id, :flick_img)
   end
 
   def find_flick
