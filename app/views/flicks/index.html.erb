@@ -1,9 +1,15 @@
 <h1 class="current-category"><%= params[:category] %></h1>
 
 <% if @flicks.count == 0 %>
-  <h3>There are no movies in this category</h3>
+	<h3>There are no movies in this category</h3>
 <% else %>
-  <% @flicks.each do |flick| %>
-    <h2><%= link_to flick.title, flick_path(flick) %></h2>
-  <% end %>
+	<div class="row">
+		<% @flicks.each do |flick| %>
+			<div class="col-md-3">
+				<a href="/flicks/ <%= flick.id %>">
+					<%= image_tag flick.flick_img.url(:flick_index), class: "flick" %>
+				</a>
+			</div>
+		<% end %>
+	</div>
 <% end %>
