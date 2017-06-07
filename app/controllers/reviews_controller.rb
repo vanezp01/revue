@@ -25,6 +25,5 @@ class ReviewsController < ApplicationController
     def find_flick
       @flick = Flick.find(params[:flick_id])
     end
-  end
 
 end
