@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :find_flick
   before_action :find_review, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit]
 
   def new
     @review = Review.new
@@ -32,7 +33,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     redirect_to flick_path(@flick)
-  end 
+  end
 
   private
     def review_params

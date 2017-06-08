@@ -7,6 +7,9 @@
     <h2 class="flick-title"><%= @flick.title %></h2>
     <h3 class="flick-director"><span><em>From: </em></span><%= @flick.director %></h3>
     <h4 class="flick-director"><%= @flick.category.name %></h4>
+    <h4 class="avg-rating">Average Rating</h4>
+		<div class="average-review-rating" data-score=<%= @average_review %>></div>
+		<span class="number-of-reviews"><em>From: </em><%= @flick.reviews.count %> reviews </span>
     <p class="flick-desc"><%= @flick.description %></p>
   </div>
 </div>
@@ -40,5 +43,15 @@
 			return $(this).attr('data-score');
 		},
 		path: '/assets/'
+	});
+</script>
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
 	});
 </script>

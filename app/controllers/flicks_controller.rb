@@ -1,5 +1,6 @@
 class FlicksController < ApplicationController
   before_action :find_flick, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit]
 
   def index
     if params[:category].blank?
@@ -11,7 +12,12 @@ class FlicksController < ApplicationController
   end
 
   def show
-  end
+    if @flick.reviews.blank?
+			@average_review = 0
+		else
+			@average_review = @flick.reviews.average(:rating).round(2)
+		end
+	end
 
   def new
     @flick = current_user.flicks.build
