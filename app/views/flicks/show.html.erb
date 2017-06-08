@@ -26,15 +26,17 @@
 	</div>
 </div>
 
-
+<p>
 <div class="links btn-group">
   <% if user_signed_in? %>
     <% if @flick.user_id == current_user.id %>
-      <%= link_to "Edit", edit_flick_path(@flick) %>
-      <%= link_to "Delete", flick_path(@flick), method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "Edit This Flick", edit_flick_path(@flick), class: "btn btn-custom" %>
+      <%= link_to "Delete This Flick", flick_path(@flick), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
     <% end %>
   <% end %>
 </div>
+</p>
+
 
 <script>
 	$('.review-rating').raty({

@@ -13,7 +13,7 @@
     <nav class="navbar navbar-default">
   		<div class="container">
   			<div class="navbar-header">
-  				<%= link_to "Flick", root_path, class: "navbar-brand"  %>
+  				<%= link_to "Revue", root_path, class: "navbar-brand"  %>
   			</div>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
@@ -46,8 +46,10 @@
       </ul>
     </div>
   </nav>
+  <center>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+  </center> 
 
   <div class="container">
 
