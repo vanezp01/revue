@@ -15,7 +15,7 @@ class FlicksController < ApplicationController
     if @flick.reviews.blank?
 			@average_review = 0
 		else
-			@average_review = @flick.reviews.average(:rating).round(2)
+			@average_review = @flick.reviews.average(:rating)
 		end
 	end
 
