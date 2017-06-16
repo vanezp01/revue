@@ -65,5 +65,6 @@ gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'devise', '~> 4.3'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'paperclip', '~> 5.1'
+gem 'aws-sdk', '~> 2'
 
 ruby "2.4.0"
